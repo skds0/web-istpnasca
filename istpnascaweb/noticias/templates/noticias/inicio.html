@@ -1,0 +1,130 @@
+{% extends "core/base.html" %}
+
+{% block title %}Noticia{% endblock  %}
+
+{% load static %}
+
+{% block content %}
+    
+    <!-- Noticias -->
+    <section class="main-content blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="post-wrap">
+					{% for post in posts %}
+
+                        <article class="entry clearfix images-left">                       
+                            <div class="feature-post">
+                                <a href="{% url 'post_detail' pk=post.pk %}"><img src="{{post.image.url}}" alt="image"></a>
+                            </div><!-- /.feature-post -->
+
+                            <div class="main-post">
+                                <h2 class="title-post"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+                                <div class="meta-post clearfix">
+                                    <ul>    
+                                        <li class="post-author">
+                                            <span><a href="#">By {{post.author}}</a></span>
+                                        </li>                                        
+                                        <li class="post-date">{{post.published|date:"SHORT_DATE_FORMAT"}}</li>
+                                        <li class="post-categories">
+                                            {% for career in post.Careers.all %}
+                                            {{career.name}}{% if not forloop.last %}, {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                </div><!-- /.meta-post -->                                   
+                                <div class="entry-post">
+                                    <p>{{post.content|safe}}<a class="read-more" href="{% url 'post_detail' pk=post.pk %}">Leer más</a>
+                                    </p>                                    
+                                </div><!-- /.entry-post -->
+                            </div><!-- /.main-post -->                            
+                        </article><!-- /.entry -->
+						{% endfor %}
+
+                        <article class="entry clearfix images-right">
+                            <div class="main-post">
+                                <h2 class="title-post"><a href="blog_single.html">Designing Healthcare Apps With Delight</a></h2>
+                                <div class="meta-post clearfix">
+                                    <ul>    
+                                        <li class="post-author">
+                                            <span><a href="#">By Charlie Walter</a></span>
+                                        </li>                                        
+                                        <li class="post-date">November 18th, 2015</li>
+                                        <li class="post-categories">
+                                            <a href="#">Graphic</a>,
+                                            <a href="#">Website</a>
+                                        </li>
+                                    </ul>
+                                </div><!-- /.meta-post -->                                   
+                                <div class="entry-post">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum odio urna, vitae ultrices mi malesuada ut. Praesent lacus erat, ultricies ut risus nec, pellentesque interdum purus. In mi justo, consectetur tincidunt sapien eget, venenatis volutpat risus. Maecenas eget pretium eros. Integer tincidunt aliquet ligula in vulputate. Pellentesque faucibus risus libero.<a class="read-more" href="#">Read more</a>
+                                    </p>                                    
+                                </div><!-- /.entry-post -->
+                            </div><!-- /.main-post --> 
+                            <div class="feature-post">
+                                <a href="blog_single.html"><img src="images/blog/b2.jpg" alt="image"></a>
+                            </div><!-- /.feature-post -->                           
+                        </article><!-- /.entry -->
+
+                        <article class="entry clearfix images-left">                           
+                            <div class="feature-post">
+                                <a href="blog_single.html"><img src="images/blog/b3.jpg" alt="image"></a>
+                            </div><!-- /.feature-post -->
+
+                            <div class="main-post">
+                                <h2 class="title-post"><a href="blog_single.html">Designing Healthcare Apps With Delight</a></h2>
+                                <div class="meta-post clearfix">
+                                    <ul>    
+                                        <li class="post-author">
+                                            <span><a href="#">By Charlie Walter</a></span>
+                                        </li>                                        
+                                        <li class="post-date">November 18th, 2015</li>
+                                        <li class="post-categories">
+                                            <a href="#">Graphic</a>,
+                                            <a href="#">Website</a>
+                                        </li>
+                                    </ul>
+                                </div><!-- /.meta-post -->                                   
+                                <div class="entry-post">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum odio urna, vitae ultrices mi malesuada ut. Praesent lacus erat, ultricies ut risus nec, pellentesque interdum purus. In mi justo, consectetur tincidunt sapien eget, venenatis volutpat risus. Maecenas eget pretium eros. Integer tincidunt aliquet ligula in vulputate. Pellentesque faucibus risus libero.<a class="read-more" href="#">Read more</a>
+                                    </p>                                    
+                                </div><!-- /.entry-post -->
+                            </div><!-- /.main-post -->                            
+                        </article><!-- /.entry -->
+
+                        <article class="entry clearfix images-right">
+                            <div class="main-post">
+                                <h2 class="title-post"><a href="blog_single.html">Designing Healthcare Apps With Delight</a></h2>
+                                <div class="meta-post clearfix">
+                                    <ul>    
+                                        <li class="post-author">
+                                            <span><a href="#">By Charlie Walter</a></span>
+                                        </li>                                        
+                                        <li class="post-date">November 18th, 2015</li>
+                                        <li class="post-categories">
+                                            <a href="#">Graphic</a>,
+                                            <a href="#">Website</a>
+                                        </li>
+                                    </ul>
+                                </div><!-- /.meta-post -->                                   
+                                <div class="entry-post">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rutrum odio urna, vitae ultrices mi malesuada ut. Praesent lacus erat, ultricies ut risus nec, pellentesque interdum purus. In mi justo, consectetur tincidunt sapien eget, venenatis volutpat risus. Maecenas eget pretium eros. Integer tincidunt aliquet ligula in vulputate. Pellentesque faucibus risus libero.<a class="read-more" href="#">Read more</a>
+                                    </p>                                    
+                                </div><!-- /.entry-post -->
+                            </div><!-- /.main-post --> 
+
+                            <div class="feature-post">
+                                <a href="blog_single.html"><img src="images/blog/b4.jpg" alt="image"></a>
+                            </div><!-- /.feature-post -->                           
+                        </article><!-- /.entry -->
+                    </div><!-- /.post-wrap -->    
+                    <div class="load-more">
+                        <a class="flat-button" href="#">Ver más</a>
+                    </div>        
+                </div><!-- /.col-md-12 -->                
+            </div><!-- /.row -->
+        </div><!-- /.container -->   
+    </section>
+       
+{% endblock  %}
