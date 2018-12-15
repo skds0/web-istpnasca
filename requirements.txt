@@ -1,0 +1,4 @@
+Pillow==5.3.0
+django==2.0.9
+django-ckeditor==5.6.1
+django-jet==1.0.8
